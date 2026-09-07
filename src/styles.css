@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0e1110;
+  --color-surface: #171b19;
+  --color-surface-2: #1f2522;
+  --color-ink: #e8e4dc;
+  --color-muted: #9a9488;
+  --color-line: #2a322e;
+  --color-accent: #c4a574;
+  --color-accent-2: #e8b86d;
+  --color-danger: #c45c4a;
+  --color-ok: #7d9a6a;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-ink);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  a {
+    color: inherit;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.prose-clip h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-ink);
+}
+.prose-clip h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-clip p {
+  margin: 0.85rem 0;
+  color: var(--color-ink);
+  line-height: 1.65;
+}
+.prose-clip ul,
+.prose-clip ol {
+  margin: 0.75rem 0 0.75rem 1.2rem;
+  color: var(--color-ink);
+}
+.prose-clip li {
+  margin: 0.35rem 0;
+  line-height: 1.6;
+}
+.prose-clip a {
+  color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+.prose-clip a:hover {
+  color: var(--color-accent-2);
+  text-decoration: underline;
+}
+.prose-clip blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1rem;
+  color: var(--color-muted);
+  margin: 1rem 0;
+}
+.prose-clip table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+.prose-clip th,
+.prose-clip td {
+  border: 1px solid var(--color-line);
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+}
+.prose-clip th {
+  background: var(--color-surface-2);
+}
