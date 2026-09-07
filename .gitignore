@@ -12,4 +12,7 @@ screenshots
 .grok
 /tmp
 .DS_Store
+AGENTS.md
+AGENTS.project.md
 .project_id
+
