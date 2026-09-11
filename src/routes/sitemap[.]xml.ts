@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SITE_ORIGIN, SITEMAP_LASTMOD, SITEMAP_PATHS } from "@/lib/seo";
 
 function xml() {
-  const urls = SITEMAP_PATHS.map((path) => {
+  const urls = [...SITEMAP_PATHS, "/llms.txt"].map((path) => {
     const loc = path === "/" ? `${SITE_ORIGIN}/` : `${SITE_ORIGIN}${path}`;
     return `  <url><loc>${loc}</loc><lastmod>${SITEMAP_LASTMOD}</lastmod></url>`;
   }).join("\n");

@@ -1,0 +1,35 @@
+# Clip
+
+> Compress MP4 and MOV in the browser. The file never leaves this device. Not a YouTube downloader.
+
+The public origin is https://clip-local.vercel.app. Operated by Ultimatum. Contact ultaultimatum@gmail.com.
+
+## Tools
+
+* [Compress video](https://clip-local.vercel.app) — Mediabunny + FFmpeg in this tab.
+
+## Guides
+
+* [How to compress](https://clip-local.vercel.app/how-to) — Drop, preset, download.
+* [WhatsApp](https://clip-local.vercel.app/whatsapp) — Video-send vs document.
+* [Email](https://clip-local.vercel.app/email) — Gmail 25 MB is the letter.
+* [iPhone](https://clip-local.vercel.app/iphone) — Files vs Photos.
+* [Limits](https://clip-local.vercel.app/limits) — Memory, not a daily cap.
+* [FAQ](https://clip-local.vercel.app/faq) — Privacy.
+
+## Site pages
+
+* [About](https://clip-local.vercel.app/about) — Operator and what this tool refuses to be.
+* [Contact](https://clip-local.vercel.app/contact) — ultaultimatum@gmail.com
+* [Privacy](https://clip-local.vercel.app/privacy) — Bytes stay in the tab.
+* [Terms](https://clip-local.vercel.app/terms) — Not a studio, not a host.
+* [FAQ](https://clip-local.vercel.app/faq) — Short answers.
+
+## Site
+
+* [Sitemap](https://clip-local.vercel.app/sitemap.xml)
+* [llms.txt](https://clip-local.vercel.app/llms.txt) — This file.
+
+## Not on this origin
+
+* Bytes stay in the tab. There is no conversion API and no `/blogs/` cluster.
