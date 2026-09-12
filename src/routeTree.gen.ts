@@ -18,7 +18,6 @@ import { Route as HowToRouteImport } from './routes/how-to'
 import { Route as IphoneRouteImport } from './routes/iphone'
 import { Route as LimitsRouteImport } from './routes/limits'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WhatsappRouteImport } from './routes/whatsapp'
@@ -68,11 +67,6 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
-  id: '/robots.txt',
-  path: '/robots.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -99,7 +93,6 @@ export interface FileRoutesByFullPath {
   '/iphone': typeof IphoneRoute
   '/limits': typeof LimitsRoute
   '/privacy': typeof PrivacyRoute
-  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/whatsapp': typeof WhatsappRoute
@@ -114,7 +107,6 @@ export interface FileRoutesByTo {
   '/iphone': typeof IphoneRoute
   '/limits': typeof LimitsRoute
   '/privacy': typeof PrivacyRoute
-  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/whatsapp': typeof WhatsappRoute
@@ -130,7 +122,6 @@ export interface FileRoutesById {
   '/iphone': typeof IphoneRoute
   '/limits': typeof LimitsRoute
   '/privacy': typeof PrivacyRoute
-  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/whatsapp': typeof WhatsappRoute
@@ -147,7 +138,6 @@ export interface FileRouteTypes {
     | '/iphone'
     | '/limits'
     | '/privacy'
-    | '/robots.txt'
     | '/sitemap.xml'
     | '/terms'
     | '/whatsapp'
@@ -162,7 +152,6 @@ export interface FileRouteTypes {
     | '/iphone'
     | '/limits'
     | '/privacy'
-    | '/robots.txt'
     | '/sitemap.xml'
     | '/terms'
     | '/whatsapp'
@@ -177,7 +166,6 @@ export interface FileRouteTypes {
     | '/iphone'
     | '/limits'
     | '/privacy'
-    | '/robots.txt'
     | '/sitemap.xml'
     | '/terms'
     | '/whatsapp'
@@ -193,7 +181,6 @@ export interface RootRouteChildren {
   IphoneRoute: typeof IphoneRoute
   LimitsRoute: typeof LimitsRoute
   PrivacyRoute: typeof PrivacyRoute
-  RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   WhatsappRoute: typeof WhatsappRoute
@@ -264,13 +251,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/robots.txt': {
-      id: '/robots.txt'
-      path: '/robots.txt'
-      fullPath: '/robots.txt'
-      preLoaderRoute: typeof RobotsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -305,7 +285,6 @@ const rootRouteChildren: RootRouteChildren = {
   IphoneRoute: IphoneRoute,
   LimitsRoute: LimitsRoute,
   PrivacyRoute: PrivacyRoute,
-  RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   WhatsappRoute: WhatsappRoute,

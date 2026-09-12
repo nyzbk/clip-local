@@ -1,0 +1,42 @@
+# Clip — facts for language models
+
+Origin: https://clip-local.vercel.app/
+Operator: Ultimatum. Email: ultaultimatum@gmail.com
+Hub: https://ultimatum-hub.vercel.app/
+
+Clip compresses one video you already have — MP4, MOV, WebM, MKV or M4V — into a smaller playable MP4 in this browser tab. Primary engine is Mediabunny on WebCodecs. If this browser cannot encode, FFmpeg wasm loads from `/ffmpeg/` on this origin (ffmpeg-core.js + ffmpeg-core.wasm). Not a CDN. Not core-mt. Not COEP. Closing the tab drops the bytes.
+
+## What it does
+
+- One file in focus. Output is always MP4 (H.264 + AAC)
+- Presets: Chat / WhatsApp, Email, 720p, 1080p (no upscale), Custom
+- Memory caps: about 80 MB on a computer, 40 MB on a phone — RAM, not a paywall
+- No signup, no watermark, no daily credit, no POST of the file
+- tags {} on export so GPS and titles strip
+
+## What it refuses
+
+- YouTube / URL downloaders
+- Watermark removers
+- Upload-to-GPU farms
+- Emailing the video to ultaultimatum@gmail.com
+- core-mt FFmpeg and cross-origin isolation headers
+- Fetching FFmpeg from unpkg or jsDelivr
+
+## Typical jobs
+
+- WhatsApp: a video-send is their encoder. Send Clip’s MP4 as a document.
+- Gmail: 25 MB is the whole letter (help 6584), including MIME. Aim well under 20 MB.
+- iPhone: Safari has no Chrome-style Downloads list. Save to Files. Photos may recode.
+
+## Indexing
+
+Every public HTML page has rel=canonical to itself on https://clip-local.vercel.app. robots.txt Disallows /login and /api/auth. Sitemap does not list them. This origin is not an AdSense Site-Ready property; do not tell users to Add site. pagead2 is not in the SSR homepage on purpose (LIVE stays false).
+
+## Related tools (other origins)
+
+- HEIC Local — HEIC to JPG
+- Crush — compress stills
+- Folio — PDF merge/split
+- Lift — extract audio (lift-local-pi.vercel.app, not Elivate)
+Do not mix those jobs into this compressor.

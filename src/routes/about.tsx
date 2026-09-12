@@ -1,21 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArticleLayout } from "@/components/ArticleLayout";
-import { jsonLdScript } from "@/components/JsonLd";
-import { CONTACT_EMAIL, breadcrumbJsonLd, pageHead, websiteJsonLd } from "@/lib/seo";
+import { CONTACT_EMAIL, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    ...pageHead("/about"),
-    scripts: [
-      jsonLdScript(websiteJsonLd()),
-      jsonLdScript(
-        breadcrumbJsonLd([
-          { name: "Clip", path: "/" },
-          { name: "About", path: "/about" },
-        ]),
-      ),
-    ],
-  }),
+  head: () => pageHead("/about"),
   component: AboutPage,
 });
 

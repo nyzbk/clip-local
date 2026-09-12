@@ -1,22 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArticleLayout } from "@/components/ArticleLayout";
-import { jsonLdScript } from "@/components/JsonLd";
 import { whatsappFaq } from "@/lib/clip/faq";
-import { breadcrumbJsonLd, pageHead, websiteJsonLd } from "@/lib/seo";
+import { pageHead, WHATSAPP_STEPS } from "@/lib/seo";
 
 export const Route = createFileRoute("/whatsapp")({
-  head: () => ({
-    ...pageHead("/whatsapp"),
-    scripts: [
-      jsonLdScript(websiteJsonLd()),
-      jsonLdScript(
-        breadcrumbJsonLd([
-          { name: "Clip", path: "/" },
-          { name: "WhatsApp", path: "/whatsapp" },
-        ]),
-      ),
-    ],
-  }),
+  head: () =>
+    pageHead("/whatsapp", {
+      faqs: whatsappFaq,
+      howToName: "Send a Clip MP4 through WhatsApp without their video-send encoder",
+      howToSteps: WHATSAPP_STEPS,
+    }),
   component: WhatsappPage,
 });
 

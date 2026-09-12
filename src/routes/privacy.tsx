@@ -1,21 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArticleLayout } from "@/components/ArticleLayout";
-import { jsonLdScript } from "@/components/JsonLd";
-import { CONTACT_EMAIL, breadcrumbJsonLd, pageHead, websiteJsonLd } from "@/lib/seo";
+import { CONTACT_EMAIL, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    ...pageHead("/privacy"),
-    scripts: [
-      jsonLdScript(websiteJsonLd()),
-      jsonLdScript(
-        breadcrumbJsonLd([
-          { name: "Clip", path: "/" },
-          { name: "Privacy", path: "/privacy" },
-        ]),
-      ),
-    ],
-  }),
+  head: () => pageHead("/privacy", { legal: true }),
   component: PrivacyPage,
 });
 

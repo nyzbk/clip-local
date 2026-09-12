@@ -18,13 +18,6 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Clip — Compress Video in Your Browser" },
       { name: "theme-color", content: "#0E1110" },
-      { property: "og:type", content: "website" },
-      { property: "og:site_name", content: 'Clip' },
-      { property: "og:image", content: "https://clip-local.vercel.app/og.jpg" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://clip-local.vercel.app/og.jpg" },
       { name: "google-adsense-account", content: ADSENSE_CLIENT },
     ],
     links: [

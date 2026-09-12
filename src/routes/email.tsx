@@ -1,22 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArticleLayout } from "@/components/ArticleLayout";
-import { jsonLdScript } from "@/components/JsonLd";
 import { emailFaq } from "@/lib/clip/faq";
-import { breadcrumbJsonLd, pageHead, websiteJsonLd } from "@/lib/seo";
+import { EMAIL_STEPS, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/email")({
-  head: () => ({
-    ...pageHead("/email"),
-    scripts: [
-      jsonLdScript(websiteJsonLd()),
-      jsonLdScript(
-        breadcrumbJsonLd([
-          { name: "Clip", path: "/" },
-          { name: "Email", path: "/email" },
-        ]),
-      ),
-    ],
-  }),
+  head: () =>
+    pageHead("/email", {
+      faqs: emailFaq,
+      howToName: "Attach a compressed MP4 under Gmail’s 25 MB letter",
+      howToSteps: EMAIL_STEPS,
+    }),
   component: EmailPage,
 });
 

@@ -1,22 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArticleLayout } from "@/components/ArticleLayout";
-import { jsonLdScript } from "@/components/JsonLd";
 import { iphoneFaq } from "@/lib/clip/faq";
-import { breadcrumbJsonLd, pageHead, websiteJsonLd } from "@/lib/seo";
+import { IPHONE_STEPS, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/iphone")({
-  head: () => ({
-    ...pageHead("/iphone"),
-    scripts: [
-      jsonLdScript(websiteJsonLd()),
-      jsonLdScript(
-        breadcrumbJsonLd([
-          { name: "Clip", path: "/" },
-          { name: "iPhone", path: "/iphone" },
-        ]),
-      ),
-    ],
-  }),
+  head: () =>
+    pageHead("/iphone", {
+      faqs: iphoneFaq,
+      howToName: "Save a Clip MP4 on iPhone into Files, not Photos",
+      howToSteps: IPHONE_STEPS,
+    }),
   component: IphonePage,
 });
 

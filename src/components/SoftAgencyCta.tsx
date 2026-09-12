@@ -1,9 +1,16 @@
-import { CONTACT_EMAIL } from "@/lib/seo";
+import { CONTACT_EMAIL, HUB_URL } from "@/lib/seo";
 
 export function SoftAgencyCta() {
   return (
     <p className="text-muted text-sm leading-relaxed">
       Built by Ultimatum — $10k websites, brand systems, free tools.{" "}
+      <a
+        className="text-accent hover:text-accent-2 underline-offset-4 hover:underline"
+        href={HUB_URL}
+      >
+        ultimatum-hub.vercel.app
+      </a>
+      {" · "}
       <a
         className="text-accent hover:text-accent-2 underline-offset-4 hover:underline"
         href={`mailto:${CONTACT_EMAIL}`}

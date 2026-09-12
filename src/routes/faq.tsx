@@ -2,18 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/SiteShell";
 import { Faq } from "@/components/Faq";
 import { AdUnit } from "@/components/AdUnit";
-import { jsonLdScript } from "@/components/JsonLd";
 import { faqPageItems } from "@/lib/clip/faq";
-import { faqJsonLd, pageHead, websiteJsonLd } from "@/lib/seo";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/faq")({
-  head: () => ({
-    ...pageHead("/faq"),
-    scripts: [
-      jsonLdScript(websiteJsonLd()),
-      jsonLdScript(faqJsonLd(faqPageItems)),
-    ],
-  }),
+  head: () => pageHead("/faq", { faqs: faqPageItems }),
   component: FaqPage,
 });
 

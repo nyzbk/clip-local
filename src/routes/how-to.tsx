@@ -1,21 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArticleLayout } from "@/components/ArticleLayout";
-import { jsonLdScript } from "@/components/JsonLd";
-import { breadcrumbJsonLd, pageHead, websiteJsonLd } from "@/lib/seo";
+import { HOWTO_STEPS, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/how-to")({
-  head: () => ({
-    ...pageHead("/how-to"),
-    scripts: [
-      jsonLdScript(websiteJsonLd()),
-      jsonLdScript(
-        breadcrumbJsonLd([
-          { name: "Clip", path: "/" },
-          { name: "How to", path: "/how-to" },
-        ]),
-      ),
-    ],
-  }),
+  head: () =>
+    pageHead("/how-to", {
+      howToName: "Compress a video in the browser without uploading",
+      howToSteps: HOWTO_STEPS,
+    }),
   component: HowToPage,
 });
 

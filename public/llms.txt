@@ -4,9 +4,11 @@
 
 The public origin is https://clip-local.vercel.app. Operated by Ultimatum. Contact ultaultimatum@gmail.com.
 
+Canonical for every indexable page is the same URL on this origin. `/login` and `/api/auth` are Disallow.
+
 ## Tools
 
-* [Compress video](https://clip-local.vercel.app) — Mediabunny + FFmpeg in this tab.
+* [Compress video](https://clip-local.vercel.app/) — Mediabunny (WebCodecs) first. FFmpeg wasm only from `/ffmpeg/` on this origin.
 
 ## Guides
 
@@ -15,21 +17,21 @@ The public origin is https://clip-local.vercel.app. Operated by Ultimatum. Conta
 * [Email](https://clip-local.vercel.app/email) — Gmail 25 MB is the letter.
 * [iPhone](https://clip-local.vercel.app/iphone) — Files vs Photos.
 * [Limits](https://clip-local.vercel.app/limits) — Memory, not a daily cap.
-* [FAQ](https://clip-local.vercel.app/faq) — Privacy.
+* [FAQ](https://clip-local.vercel.app/faq) — Privacy and engines.
 
 ## Site pages
 
 * [About](https://clip-local.vercel.app/about) — Operator and what this tool refuses to be.
-* [Contact](https://clip-local.vercel.app/contact) — ultaultimatum@gmail.com
-* [Privacy](https://clip-local.vercel.app/privacy) — Bytes stay in the tab.
-* [Terms](https://clip-local.vercel.app/terms) — Not a studio, not a host.
-* [FAQ](https://clip-local.vercel.app/faq) — Short answers.
+* [Contact](https://clip-local.vercel.app/contact) — ultaultimatum@gmail.com. Do not email video files.
+* [Privacy](https://clip-local.vercel.app/privacy)
+* [Terms](https://clip-local.vercel.app/terms)
 
 ## Site
 
 * [Sitemap](https://clip-local.vercel.app/sitemap.xml)
 * [llms.txt](https://clip-local.vercel.app/llms.txt) — This file.
+* [llms-full.txt](https://clip-local.vercel.app/llms-full.txt) — Longer facts.
 
 ## Not on this origin
 
-* Bytes stay in the tab. There is no conversion API and no `/blogs/` cluster.
+* Bytes stay in the tab. There is no conversion API, no URL-fetch, no YouTube downloader, and no `/blogs/` cluster.

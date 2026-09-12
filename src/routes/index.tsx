@@ -4,17 +4,14 @@ import { ClipApp } from "@/components/ClipApp";
 import { Faq } from "@/components/Faq";
 import { AdUnit } from "@/components/AdUnit";
 import { homeFaq } from "@/lib/clip/faq";
-import { faqJsonLd, pageHead, websiteJsonLd } from "@/lib/seo";
-import { jsonLdScript } from "@/components/JsonLd";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    ...pageHead("/"),
-    scripts: [
-      jsonLdScript(websiteJsonLd()),
-      jsonLdScript(faqJsonLd(homeFaq)),
-    ],
-  }),
+  head: () =>
+    pageHead("/", {
+      faqs: homeFaq,
+      includeApp: true,
+    }),
   component: Home,
 });
 
