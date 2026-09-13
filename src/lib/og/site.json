@@ -1,4 +1,6 @@
 {
   "title": "Clip",
-  "color": "C4A574"
+  "color": "C4A574",
+  "card": "custom",
+  "image": "/og.jpg"
 }

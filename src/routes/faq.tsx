@@ -19,7 +19,9 @@ function FaqPage() {
         </Link>{" "}
         / FAQ
       </p>
-      <h1 className="font-display mt-3 text-4xl">FAQ</h1>
+      <h1 className="font-display mt-3 text-4xl">
+        Clip FAQ — upload, WhatsApp, Gmail, iPhone
+      </h1>
       <p className="text-muted mt-3 max-w-2xl">
         Upload, engines, iPhone Files, WhatsApp pipes, Gmail’s 25 MB letter.
         Ads, if ever Ready, do not see your frames.

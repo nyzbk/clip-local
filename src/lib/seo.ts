@@ -3,7 +3,7 @@ export const SITE_NAME = "Clip";
 export const CONTACT_EMAIL = "ultaultimatum@gmail.com";
 export const ADSENSE_CLIENT = "ca-pub-7636435144500691";
 export const HUB_URL = "https://ultimatum-hub.vercel.app/";
-export const SITEMAP_LASTMOD = "2026-09-12";
+export const SITEMAP_LASTMOD = "2026-09-13";
 export const OG_IMAGE = `${SITE_ORIGIN}/og.jpg`;
 
 export const SITEMAP_PATHS = [

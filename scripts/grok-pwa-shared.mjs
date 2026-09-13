@@ -297,6 +297,29 @@ export function titleFromDocument(html) {
   return match ? unescapeHtml(match[1]).trim() : "";
 }
 
+export function descriptionFromDocument(html) {
+  const tag = String(html ?? "").match(
+    /<meta\b[^>]*\bname\s*=\s*["']description["'][^>]*>/i,
+  );
+  if (!tag) {
+    const tag2 = String(html ?? "").match(
+      /<meta\b[^>]*\bcontent\s*=\s*["'][^"']*["'][^>]*\bname\s*=\s*["']description["'][^>]*>/i,
+    );
+    if (!tag2) return "";
+    const c = tag2[0].match(/\bcontent\s*=\s*["']([^"']*)["']/i);
+    return c ? unescapeHtml(c[1]).trim() : "";
+  }
+  const c = tag[0].match(/\bcontent\s*=\s*["']([^"']*)["']/i);
+  return c ? unescapeHtml(c[1]).trim() : "";
+}
+
+export function canonicalFromDocument(html) {
+  const tag = String(html ?? "").match(/<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*>/i);
+  if (!tag) return "";
+  const href = tag[0].match(/\bhref\s*=\s*["']([^"']*)["']/i);
+  return href ? href[1].trim() : "";
+}
+
 export function resolveOgTitle(
   site = {},
   appName = DEFAULT_APP_NAME,
@@ -338,20 +361,35 @@ export function grokOgHeadTags({
   appName = DEFAULT_APP_NAME,
   site = {},
   documentTitle = "",
+  documentDescription = "",
+  documentCanonical = "",
   cwd = process.cwd(),
 } = {}) {
-  const title = resolveOgTitle(site, appName, host, documentTitle);
+  // Per-page <title> wins so og:title matches the document (AdSense/SEO unique titles).
+  // site.json title remains the PWA/app-name fallback when the document has no <title>.
+  const title =
+    String(documentTitle ?? "").trim() ||
+    resolveOgTitle(site, appName, host, "");
   const publicHost = resolvePublicHost(host);
   const tags = [
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta property="og:title" content="${escapeHtml(title)}">`,
+    `<meta name="twitter:title" content="${escapeHtml(title)}">`,
   ];
-  const description = String(site.description ?? "").trim();
+  const description =
+    String(documentDescription ?? "").trim() ||
+    String(site.description ?? "").trim();
   if (description) {
     tags.push(`<meta property="og:description" content="${escapeHtml(description)}">`);
+    tags.push(`<meta name="twitter:description" content="${escapeHtml(description)}">`);
   }
   if (String(site.type ?? "").toLowerCase() === "x:game") {
     tags.push(`<meta property="og:type" content="x:game">`);
+  } else {
+    tags.push(`<meta property="og:type" content="website">`);
+  }
+  if (documentCanonical) {
+    tags.push(`<meta property="og:url" content="${escapeHtml(documentCanonical)}">`);
   }
   if (publicHost) {
     const asset = resolveOgCardAsset(site, cwd);
@@ -426,11 +464,13 @@ export function injectGrokPwaHead(html, ctx = {}) {
   if (typeof html !== "string") return html;
   const { site, projectId, creator, creatorId, host, cwd } = normalizeHeadContext(ctx);
   const documentTitle = titleFromDocument(html);
+  const documentDescription = descriptionFromDocument(html);
+  const documentCanonical = canonicalFromDocument(html);
   const appName = resolveOgTitle(
     site,
     ctx.appName ?? DEFAULT_APP_NAME,
     host,
-    documentTitle,
+    "",
   );
   let next = stripShareMetaTags(html);
 
@@ -444,7 +484,15 @@ export function injectGrokPwaHead(html, ctx = {}) {
 
   next = insertAfterHeadOpen(
     next,
-    grokOgHeadTags({ host, appName, site, documentTitle, cwd }).join(""),
+    grokOgHeadTags({
+      host,
+      appName,
+      site,
+      documentTitle,
+      documentDescription,
+      documentCanonical,
+      cwd,
+    }).join(""),
   );
 
   if (!next.includes("/grok-app-builder/extensions.js")) {

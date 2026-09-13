@@ -32,6 +32,13 @@ function PrivacyPage() {
           product (Auth OFF, DB OFF).
         </li>
         <li>AdSense publisher ca-pub-7636435144500691.</li>
+        <li>
+          If this origin is ever marked Ready, Google ads may set cookies or
+          similar identifiers on the page (not on the video file). That is
+          ordinary AdSense measurement. Until then the slots are empty
+          placeholders and Auto ads stay off. Ads never receive the video
+          bytes. You can refuse personalized ads in Google’s Ads Settings.
+        </li>
       </ul>
       <p>
         Contact <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
